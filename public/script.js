@@ -4,7 +4,9 @@ function updateMessage() {
         "Deployment successful!",
         "CI/CD is awesome!",
         "GitHub Actions rocks!", 
-        "Serverless is the best!"
+        "Serverless is the best!", 
+        "Testing is fun!", 
+        "Automation is the future!"
     ];
     
     const messageElement = document.getElementById('message');
