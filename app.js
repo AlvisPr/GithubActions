@@ -1,19 +1,23 @@
 const express = require('express');
-const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
 
-// Serve static files from the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
-app.get('/api/message', (req, res) => {
-  res.send('Goodbye World');
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the GitHub Actions Demo API' });
 });
 
-if (!module.parent) {
-  app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.get('/health', (req, res) => {
+  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
+// Export for testing
+module.exports = app;
+
+// Start server only if not being tested
+if (process.env.NODE_ENV !== 'test') {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
   });
 }
-
-module.exports = app;
