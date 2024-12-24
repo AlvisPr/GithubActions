@@ -3,7 +3,8 @@ function updateMessage() {
         "Hello from GitHub Actions!",
         "Deployment successful!",
         "CI/CD is awesome!",
-        "GitHub Actions rocks!"
+        "GitHub Actions rocks!", 
+        "Serverless is the best!"
     ];
     
     const messageElement = document.getElementById('message');
